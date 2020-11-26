@@ -1,0 +1,21 @@
+section.page{
+    width: calc(100vw - 200px);
+    //height: calc(100vh - 100px);
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    background-color:#F1FAEE;
+    border-radius: 10px;
+    overflow: hidden;
+    header.page-header{
+        width: 100%;
+        background-color:#5c7aff;
+        h3{
+            text-align: center;
+            color: #F1FAEE;
+            font-weight: 400;
+        }
+    }
+}
