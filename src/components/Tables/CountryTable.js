@@ -1,12 +1,14 @@
 import React from 'react';
-import './CountryTable.scss';
+import './TableStyle.scss';
 
 const CountryTable = ({countries}) =>{
     return(
-        <table className="country-card">
+        <table className="table-container country">
             <thead>
-                <th>Country</th>
-                <th>Infected</th>
+                <tr>
+                    <th>Country</th>
+                    <th>Infected</th>
+                </tr>
             </thead>
             <tbody>
                 {

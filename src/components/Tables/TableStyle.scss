@@ -1,0 +1,50 @@
+
+// table.country-table{
+//     width:250px;
+//     border: 1px solid grey;
+//     border-collapse: collapse;
+//     font-family: 'Roboto', sans-serif;
+//     font-size:14px;
+//     font-weight: 300;
+//     margin: 20px;
+//     th{
+//         background-color:#fcbf49;
+//     }
+//     th,td{
+//         width:125px;
+//         text-align: center;
+        
+//     }
+    
+// }
+
+.table-container{
+    padding: 0 20px 20px 20px;
+    margin: 20px;
+    border-collapse: collapse;
+    &.country{
+        width:250px;
+    }
+    &.infected{
+        width:500px;
+    }
+    thead{
+        color:grey;
+        font-size: 14px;
+        border-bottom: 2px solid #ddd;
+    }
+    th,td{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        height: 15px;
+        text-align: left;
+        padding: 6px 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid lightgray;
+        
+    }
+    .tr-dead{
+        color:#ce463d;
+        font-weight: bold;
+    }
+}
