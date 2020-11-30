@@ -24,7 +24,7 @@ const Modal = ({tittle, close, infected, setInfected}) => {
             'age': age,
             'female':female
         };
-        if(newInfected.first_name == "" || newInfected.first_name =="") {
+        if(newInfected.first_name === "" || newInfected.first_name === "") {
             return alert("Error: Enter first and last name to add a new infected, please.")
         }else{
             postInfected(newInfected)
