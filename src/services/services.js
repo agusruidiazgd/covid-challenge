@@ -23,18 +23,17 @@ export const getInfected = async () => {
 }
 
 export const postInfected = async (newInfected) => {
-    try {
-        const res = await axios.post(baseInfected, newInfected);
-        return res.data;
-    }catch(err) {
-        throw new Error(`Unhandled - postInfected: ${err}`);
-    }
+        try {
+            const res = await axios.post(baseInfected, newInfected);
+            return res.data;
+        }catch(err) {
+            throw new Error(`Unhandled - postInfected: ${err}`);
+        }  
 }
 
 export const dateFormat = (string) =>{
     const date = moment(string);
     return date.format("MMM YY")
-    //return date.format('L')
 } 
 
 export const sortByDate = (data) =>{
@@ -45,9 +44,3 @@ export const sortByDate = (data) =>{
     return data;
 }
 
-export const sortByAge = (data) =>{
-    const orderedData = data.sort((a,b)=>{
-        return Number(a.age) - Number(b.age);
-    })
-    return orderedData;
-}

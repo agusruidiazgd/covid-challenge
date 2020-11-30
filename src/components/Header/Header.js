@@ -1,13 +1,13 @@
 import React from 'react';
 import './Header.scss';
-import Card from '../Card/Card';
 import {Link} from 'react-router-dom';
-//import '../../abstract/variables.scss';
+import Counter from '../Counter/Counter';
 
-const Header = () =>{
+const Header = ({infected}) =>{
     return(
         <header className='main-header'>
             <h1>CORONAVIRUS App</h1>
+            <Counter infected={infected}/>
             <nav>
                 <Link to = '/'>Home</Link>
                 <Link to = '/infected'>List of infected</Link>

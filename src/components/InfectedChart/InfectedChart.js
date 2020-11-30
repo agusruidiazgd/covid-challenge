@@ -9,11 +9,26 @@ const InfectedChart = ({infected}) => {
 
     const dates = infected.map(item =>{
         let date = dateFormat(item.infect_date)
-        console.log(date)
         return date ;
     })
 
-
+    // const InfectedCounter = () =>{
+    //     let counter = [];
+    //     console.log(dates)
+    //     dates.forEach(date =>{
+    //             infected.forEach(person =>{
+    //                 if(dateFormat(person.infect_date).toString() == date){
+    //                     console.log([date,person])
+    //                 }
+    //             })
+                
+    //     })
+    //     return console.log(counter)
+    //     //return counter.reduce((acc, infected) =>acc + infected, 0);
+    // }
+    
+    //InfectedCounter();
+    
     const data = {
         labels: dates,
         datasets: [

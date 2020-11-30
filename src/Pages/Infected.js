@@ -7,8 +7,8 @@ import Modal from '../components/Modal/Modal';
 import './pages.scss';
 
 
-const Infected = () =>{
-    const [infected, setInfected] = useState([]);
+const Infected = ({infected, setInfected}) =>{
+    const [order, setOrder] = useState(false);
     const [displayNewInfectedModal, setDisplayNewInfectedModal] = useState(false);
 
     const addInfected = () =>{
@@ -19,9 +19,29 @@ const Infected = () =>{
         const promise = getInfected();
         promise.then(data => { 
             setInfected(data);
-            console.log(data);
         });
     }, []);
+
+    const changeOrder = async() =>{
+        setOrder(!order);
+        if(order === false){
+            const promise = getInfected();
+            promise.then(data => { 
+                setInfected(data);
+            });
+        }else{
+            sortByAge(infected);
+        }
+        
+    }
+
+    const sortByAge = (data) =>{
+        const orderedData = [...data].sort((a,b)=>{
+            return Number(a.age) - Number(b.age);
+        })
+        setInfected(orderedData);
+        return orderedData;
+    }
 
     return(
         <section className="page">
@@ -41,7 +61,7 @@ const Infected = () =>{
             } 
             <main className="page-content">
                 <div className='button-container'>
-                    <button onClick={sortByAge(infected)}>Order by age</button>
+                    <button onClick={changeOrder}>Order by age</button>
                     <button onClick={addInfected}>Add an infected</button>
                     <ReactHTMLTableToExcel 
                         id='export-excel'

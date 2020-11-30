@@ -3,6 +3,7 @@ section.page{
     margin: auto;
     margin-top: 30px;
     display: flex;
+    justify-content:space-around;
     flex-wrap: wrap;
     background-color:#F1FAEE;
     border-radius: 10px;
@@ -41,5 +42,35 @@ section.page{
             font-weight: 400;
             margin:0;
         }
+    }
+    .button-container{
+        margin-top: 15px;
+    }
+    button{
+        width:120px;
+        font-family: 'Roboto', sans-serif;
+        background-color:#c8cfe7;
+        color:#03045e;
+        padding:10px;
+        border:none;
+        border-radius: 6px;
+        transition: background-color 0.1s linear;
+        &:hover,&:focus{
+            outline:none;
+            background-color: darken(#c8cfe7,10%);
+        }
+        &:focus{
+            font-weight:bold;
+        }
+        &.close{
+            background-color:#ce463d;
+            color:white;
+            width:40px;
+            &:hover,&:focus{
+                outline:none;
+                background-color: darken(#ce463d,5%);
+            }
+        }
+        
     }
 }

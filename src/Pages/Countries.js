@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import CountryTable from '../components/Tables/CountryTable';
 import {getCountries} from '../services/services';
-import PieChart from '../components/PieChart/PieChart';
-
+import BarChart from '../components/BarChart/BarChart';
 import './pages.scss';
-//import './Header.scss';
+
 
 const Country = () =>{
     const [countries, setCountries] = useState([]);
@@ -22,7 +21,7 @@ const Country = () =>{
                 <h3>EVOLUTION BY COUNTRY</h3>
             </header>
             <CountryTable countries={countries}/>
-            <PieChart countries={countries}/>
+            <BarChart countries={countries}/>
         </section>
     )
 }

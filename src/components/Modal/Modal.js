@@ -6,9 +6,9 @@ const Modal = ({tittle, close, infected, setInfected}) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [country, setCountry] = useState("");
-    const [live, setLive] = useState(false);
+    const [live, setLive] = useState(null);
     const [age, setAge] = useState("");
-    const [female, setFemale] = useState(true);
+    const [female, setFemale] = useState(null);
 
     const changeFirstName = event => setFirstName(event.target.value);
     const changeLastName = event => setLastName(event.target.value);
@@ -24,15 +24,24 @@ const Modal = ({tittle, close, infected, setInfected}) => {
             'age': age,
             'female':female
         };
-
-        postInfected(newInfected)
-        .then(res => {
-            const newList = [...infected];
-            newList.push(newInfected);
-            setInfected(newList);
-            close();
-        }).catch(err => alert("ERROR! post user"));
+        if(newInfected.first_name == "" || newInfected.first_name =="") {
+            return alert("Error: Enter first and last name to add a new infected, please.")
+        }else{
+            postInfected(newInfected)
+            .then(res => {
+                const newList = [...infected];
+                newList.push(newInfected);
+                setInfected(newList);
+                close();
+            }).catch(err => alert("ERROR! post user"));
+        }
+        
     }
+
+    const changeLive = (event) => event.target.checked == true ? setLive(true) : setLive(true);
+
+    const changeFemale = (event) => event.target.value == 'female' ? setFemale(true) : setFemale(false);
+
 
     return (
         <React.Fragment>
@@ -40,7 +49,7 @@ const Modal = ({tittle, close, infected, setInfected}) => {
             <section className="modal">
                 <header>
                     <h2>{tittle}</h2>
-                    <button type="button" onClick={close}>X</button>
+                    <button type="button" className="close" onClick={close}>X</button>
                 </header>
                 <article className="modal-content">
                     <form>
@@ -56,15 +65,20 @@ const Modal = ({tittle, close, infected, setInfected}) => {
                         <label>Country</label>
                         <input id="input-country" className="data" type="text" onChange={changeCountry}></input>
 
-                        <label>Live</label>
-                        <span>
-                            <input id="input-date" type="checkbox" name="date"/>
-                            <input id="input-date" type="checkbox" name="date"/>
-                        </span>
+                        <div className="wrap-live">
+                            <label>Live</label>
+                            <input id="live-checkbox" type="checkbox" onChange={changeLive}/>
+                        </div>
+                        
+                        <select onChange={changeFemale}>
+                            <option value="-1" selected disabled>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
                         
                     </form>
                     <footer>
-                        <button id="add-button" type="button" class="btn" onClick={add}>Add</button>
+                        <button id="add-button" type="button" className="btn" onClick={add}>Add</button>
                     </footer>
                 </article>
             </section>
