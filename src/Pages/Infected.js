@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import InfectedTable from '../components/Tables/InfectedTable';
 import InfectedChart from '../components/InfectedChart/InfectedChart';
-import {getInfected} from '../services/services';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import {getInfected} from '../services/services';
 import Modal from '../components/Modal/Modal';
 import './pages.scss';
 
@@ -15,12 +15,6 @@ const Infected = ({infected, setInfected}) =>{
         setDisplayNewInfectedModal(true);
     }
 
-    useEffect(() => {
-        const promise = getInfected();
-        promise.then(data => { 
-            setInfected(data);
-        });
-    }, []);
 
     const changeOrder = async() =>{
         setOrder(!order);
