@@ -2,6 +2,7 @@ import React,{useEffect, useState}  from 'react';
 import Header from './components/Header/Header';
 import Countries from './Pages/Countries';
 import Infected from './Pages/Infected';
+import Home from './Pages/Home';
 import './App.scss';
 import {
   BrowserRouter,
@@ -19,7 +20,7 @@ function App() {
         <Header infected={infected}/>
         <Switch>
           <Route exact path="/">
-            <div></div>
+            <Home />
           </Route>
           <Route exact path="/infected">
             <Infected infected={infected} setInfected={setInfected} />

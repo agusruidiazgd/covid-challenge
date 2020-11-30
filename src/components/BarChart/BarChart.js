@@ -4,15 +4,9 @@ import './BarChart.scss';
 
 const BarChart = ({countries}) => {
 
-    const infectedByCountry = countries.map(country =>{
-        console.log(country.infected)
-        return country.infected;
-    })
+    const infectedByCountry = countries.map(country => country.infected)
 
-    const nameByCountry = countries.map(country =>{
-        console.log(country.name)
-        return country.name;
-    })
+    const nameByCountry = countries.map(country =>country.name)
 
     const data = {
         labels: nameByCountry,
