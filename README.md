@@ -1,6 +1,6 @@
 # Blockinar Challenge
 
-Ver Demo en : https://fiera-calculator-app.netlify.app/
+Ver Demo en : https://covid-challenge-agustina-ruidiaz.netlify.app/
 ## Cómo levantar el proyecto
 
 1. `git clone https://github.com/agusruidiazgd/covid-challenge.git`
