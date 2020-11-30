@@ -26,7 +26,7 @@
         width:250px;
     }
     &.infected{
-        width:500px;
+        width: 570px;
     }
     thead{
         color:grey;
@@ -38,10 +38,15 @@
         font-size: 14px;
         height: 15px;
         text-align: left;
-        padding: 6px 15px;
+        padding: 6px 10px;
         vertical-align: middle;
         border-bottom: 1px solid lightgray;
         
+    }
+    tr{
+        &:hover{
+            background-color:darken(white,10%);
+        }
     }
     .tr-dead{
         color:#ce463d;

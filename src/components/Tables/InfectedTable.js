@@ -1,9 +1,11 @@
 import React from 'react';
 import './TableStyle.scss';
+import {dateFormat} from '../../services/services';
+
 
 const InfectedTable = ({infected}) =>{
     return(
-        <table className="table-container infected">
+        <table id='infected-table' className="table-container infected">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -21,7 +23,7 @@ const InfectedTable = ({infected}) =>{
                                 <td>{person.first_name} {person.last_name}</td>
                                 <td>{person.country}</td>
                                 <td>{person.age}</td>
-                                <td>{person.infect_date}</td>
+                                <td>{dateFormat(person.infect_date)}</td>
                                 <td>
                                     {person.female === true ? 'Female' : 'Male'}
                                 </td>
