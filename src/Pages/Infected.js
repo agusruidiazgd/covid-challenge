@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import InfectedTable from '../components/Tables/InfectedTable';
 import InfectedChart from '../components/InfectedChart/InfectedChart';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';

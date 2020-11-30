@@ -38,9 +38,9 @@ const Modal = ({tittle, close, infected, setInfected}) => {
         
     }
 
-    const changeLive = (event) => event.target.checked == true ? setLive(true) : setLive(true);
+    const changeLive = (event) => event.target.checked === true ? setLive(true) : setLive(true);
 
-    const changeFemale = (event) => event.target.value == 'female' ? setFemale(true) : setFemale(false);
+    const changeFemale = (event) => event.target.value === 'female' ? setFemale(true) : setFemale(false);
 
 
     return (
