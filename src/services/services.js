@@ -33,14 +33,9 @@ export const postInfected = async (newInfected) => {
 
 export const dateFormat = (string) =>{
     const date = moment(string);
-    return date.format("MMM YY")
+    return date.format("YY MMM")
 } 
 
-export const sortByDate = (data) =>{
-    data.sort((a,b)=>{
-        return dateFormat(a.infect_date) > dateFormat(b.infect_date) ? b : a;
-    })
-    console.log(data);
-    return data;
-}
+
+export const orderDates = (dates) => dates.sort((a, b) => new Date(a) - new Date(b));
 

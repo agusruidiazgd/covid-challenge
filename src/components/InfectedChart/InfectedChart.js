@@ -1,36 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 import './InfectedChart.scss';
-import {dateFormat,sortByDate} from '../../services/services';
+import {dateFormat,orderDates} from '../../services/services';
 
 const InfectedChart = ({infected}) => {
-
-    const infectedByDate = sortByDate(infected);
 
     const dates = infected.map(item =>{
         let date = dateFormat(item.infect_date)
         return date ;
     })
 
-    // const InfectedCounter = () =>{
-    //     let counter = [];
-    //     console.log(dates)
-    //     dates.forEach(date =>{
-    //             infected.forEach(person =>{
-    //                 if(dateFormat(person.infect_date).toString() == date){
-    //                     console.log([date,person])
-    //                 }
-    //             })
-                
-    //     })
-    //     return console.log(counter)
-    //     //return counter.reduce((acc, infected) =>acc + infected, 0);
-    // }
-    
-    //InfectedCounter();
+    const infectedbyDate = orderDates(dates).reduce((counter, date) =>{
+        counter[date] = (counter[date] || 0) + 1;
+        return counter;
+    },{});
     
     const data = {
-        labels: dates,
+        labels:Object.keys(infectedbyDate),
         datasets: [
             {
                 type: 'line',
@@ -38,7 +24,7 @@ const InfectedChart = ({infected}) => {
                 borderColor: `#ce463d`,
                 borderWidth: 2,
                 fill: false,
-                data: [1,3,5,6,8,9,4],
+                data: Object.values(infectedbyDate),
             },
         ]
     }
@@ -55,18 +41,6 @@ const InfectedChart = ({infected}) => {
                     display: false,
                 }
             }]
-            // xAxes: [{
-            //     type: 'time',
-            //     ticks: {
-            //         min: 'Jan 2019'
-            //     },
-            //     time: {
-            //         unit: 'month',
-            //         displayFormats: {
-            //             quarter: 'MMM YYYY'
-            //         }
-            //     }
-            // }]
         }
     } 
     return (

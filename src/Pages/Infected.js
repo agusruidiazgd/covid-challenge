@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import InfectedTable from '../components/Tables/InfectedTable';
 import InfectedChart from '../components/InfectedChart/InfectedChart';
-import {getInfected,sortByAge} from '../services/services';
+import {getInfected} from '../services/services';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import Modal from '../components/Modal/Modal';
 import './pages.scss';
