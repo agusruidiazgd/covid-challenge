@@ -42,7 +42,6 @@ const Modal = ({tittle, close, infected, setInfected}) => {
 
     const changeFemale = (event) => event.target.value === 'female' ? setFemale(true) : setFemale(false);
 
-
     return (
         <React.Fragment>
             <div className="overlay"></div>
